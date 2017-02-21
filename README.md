@@ -9,7 +9,7 @@
 
     `git clone git@github.com:pooza/feedly_deliverer.git`
 
-1. bundlerを実行。
+1. git cloneしたリポジトリのディレクトリ内で、bundlerを実行。
 
     `bundler install`
 
