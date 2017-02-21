@@ -2,14 +2,19 @@
 
 ## 設置の手順
 
-1. <https://feedly.com/v3/auth/dev> でアクセストークンを作成。  
+1. <https://feedly.com/v3/auth/dev> でアクセストークンを作成。
 取得したアクセストークンと期限日を控えておく。
+
 1. サーバ上の適当な場所で、git cloneする。
 
     `git clone git@github.com:pooza/feedly_deliverer.git`
 
-1. 設定ファイルを、feedly_deliverer.yamlの名前で作成する。  
-作成する場所は、git cloneしたリポジトリのディレクトリ内、 /usr/local/etc 、 /etc のいずれか。（この順位で読み込まれる）  
+1. bundlerを実行。
+
+    `bundler install`
+
+1. 設定ファイルを、feedly_deliverer.yamlの名前で作成する。
+作成する場所は、git cloneしたリポジトリのディレクトリ内、 /usr/local/etc 、 /etc のいずれか。（この順位で読み込まれる）
 以下、設定ファイルの例。
     ~~~
     mail_to: hoge@example.com #メールの宛先

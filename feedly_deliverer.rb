@@ -7,6 +7,7 @@ end
 ROOT_DIR = File.dirname(path)
 $LOAD_PATH.push(File.join(ROOT_DIR, 'lib'))
 
+require 'bundler/setup'
 require 'feedly_deliverer/config'
 require 'feedly_deliverer/mail_deliverer'
 require 'feedlr'
