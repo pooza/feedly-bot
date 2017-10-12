@@ -28,7 +28,6 @@ if (config['access_token']['expires_on'] - config['days']) < Date.today
     '<https://feedly.com/v3/auth/dev>',
   ].join
   deliverer.deliver!
-  exit
 end
 
 feedlr = Feedlr::Client.new({
