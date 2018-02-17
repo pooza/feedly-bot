@@ -9,7 +9,7 @@ module FeedlyBot
       @feedlr = Feedlr::Client.new({
         oauth_access_token: @config['local']['access_token']['token'],
         sandbox: false,
-        logger: Syslog::Logger.new(@config['application']['name']),
+        logger: Syslog::Logger.new('feedlr'),
       })
     end
 
