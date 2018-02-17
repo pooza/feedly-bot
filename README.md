@@ -38,11 +38,11 @@ slack:
 
 ### syslog設定
 
-feedly-botというプログラム名で、syslogに出力している。  
+feedlrというプログラム名で、syslogに出力している。  
 必要に応じて、適宜設定。以下、rsyslogでの設定例。
 
 ```
-:programname, isequal, "feedly-bot" -/var/log/feedly-bot.log
+:programname, isequal, "feedlr" -/var/log/feedlr.log
 ```
 
 ## ■操作
