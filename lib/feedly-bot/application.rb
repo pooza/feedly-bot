@@ -1,57 +1,32 @@
-require 'json'
 require 'feedly-bot/feedly'
 require 'feedly-bot/slack'
+require 'feedly-bot/package'
+require 'feedly-bot/logger'
 
 module FeedlyBot
   class Application
     def initialize
       @slack = Slack.new
+      @logger = Logger.new(Package.name)
       @feedly = Feedly.new
-      @logger = Application.logger
     end
 
     def execute
-      @logger.info({message: 'start', version: Application.version}.to_json)
+      @logger.info({message: 'start', version: Package.version})
       if @feedly.outdated?
-        message = {
-          expires_on: @feedly.expires_on,
-          url: @feedly.auth_url,
-        }
+        message = {expires_on: @feedly.expires_on, url: @feedly.auth_url}
         @slack.say(message)
-        @logger.info(message.to_json)
+        @logger.info(message)
       end
       @feedly.entries do |entry|
         @slack.say(entry)
-        @logger.info(entry.to_json)
+        @logger.info(entry)
       end
-      @logger.info({message: 'complete', version: Application.version}.to_json)
+      @logger.info({message: 'complete', version: Package.version})
     rescue => e
-      message = {
-        class: e.class,
-        message: e.message,
-      }
+      message = {class: e.class, message: e.message, version: Package.version}
       @slack.say(message)
-      @logger.error(message.to_json)
-    end
-
-    def self.name
-      return Config.instance['application']['name']
-    end
-
-    def self.version
-      return Config.instance['application']['version']
-    end
-
-    def self.url
-      return Config.instance['application']['url']
-    end
-
-    def self.full_name
-      return "#{Application.name} #{Application.version}"
-    end
-
-    def self.logger
-      return Syslog::Logger.new(Application.name)
+      @logger.error(message)
     end
   end
 end
