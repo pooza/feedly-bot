@@ -6,7 +6,7 @@ require 'feedly-bot/config'
 module FeedlyBot
   class Slack
     def initialize
-      @config = Config.new['local']['slack']
+      @config = Config.instance['local']['slack']
       @url = @config['hook']['url']
     end
 

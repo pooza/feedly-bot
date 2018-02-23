@@ -5,7 +5,7 @@ require 'syslog/logger'
 module FeedlyBot
   class Feedly
     def initialize
-      @config = Config.new
+      @config = Config.instance
       @feedlr = Feedlr::Client.new({
         oauth_access_token: @config['local']['access_token']['token'],
         sandbox: false,
@@ -26,7 +26,7 @@ module FeedlyBot
       end
     end
 
-    def old?
+    def outdated?
       return (expires_on - @config['application']['days']) < Date.today
     end
 
