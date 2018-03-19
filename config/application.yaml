@@ -1,6 +1,6 @@
 package:
   name: feedly-bot
-  version: 2.0.2
+  version: 2.0.3
   url: https://github.com/pooza/feedly-bot
 days: 7
 feedly:
