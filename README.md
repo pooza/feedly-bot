@@ -11,6 +11,8 @@ Feedlyの新着エントリーをSlackに喋らせる。
 ```
 git clone git@github.com:pooza/feedly-bot.git
 ```
+クローンを行うとローカルにリポジトリが作成されるが、このディレクトリの名前は
+変更しないことを推奨。（syslogのプログラム名や、設定ファイルのパス等に影響）
 
 ### 依存するgemのインストール
 

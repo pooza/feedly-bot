@@ -1,5 +1,6 @@
 require 'yaml'
 require 'singleton'
+require 'feedly-bot/package'
 
 module FeedlyBot
   class Config < Hash
@@ -15,13 +16,13 @@ module FeedlyBot
           end
         end
       end
-      raise 'local.yamlが見つかりません。' unless self['local']
+      raise 'ローカル設定が見つかりません。' unless self['local']
     end
 
     def dirs
       return [
-        File.join('/usr/local/etc', File.basename(ROOT_DIR)),
-        File.join('/etc', File.basename(ROOT_DIR)),
+        File.join('/usr/local/etc', Package.name),
+        File.join('/etc', Package.name),
         File.join(ROOT_DIR, 'config'),
       ]
     end
