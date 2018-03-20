@@ -38,6 +38,8 @@ slack:
     url: https://hooks.slack.com/services/*********/*********/************************
 ```
 
+アクセストークンの期限が近くなると、その旨もSlackで通知される。
+
 ### syslog設定
 
 feedlrというプログラム名で、syslogに出力している。  
