@@ -43,7 +43,7 @@ slack:
 ### syslog設定
 
 feedlrというプログラム名で、syslogに出力している。  
-必要に応じて、適宜設定。以下、rsyslogでの設定例。
+以下、rsyslogでの設定例。
 
 ```
 :programname, isequal, "feedlr" -/var/log/feedlr.log
@@ -65,5 +65,3 @@ local.yamlは、上記設置例ではconfigディレクトリ内に置いてい�
 - /etc/feedly-bot/local.yml
 - __ROOT_DIR__/config/local.yaml
 - __ROOT_DIR__/config/local.yml
-
-ファイルが発見できた時点で、以降の検索をやめる。
