@@ -39,12 +39,13 @@ module FeedlyBot
     end
 
     private
+
     def category_id
       return "user/#{@feedlr.user_profile.id}/category/global.all"
     end
 
     def entry_ids
-      return @feedlr.stream_entries_ids(category_id, count:100, unreadOnly:true)['ids']
+      return @feedlr.stream_entries_ids(category_id, count: 100, unreadOnly: true)['ids']
     end
   end
 end

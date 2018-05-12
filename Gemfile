@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
+gem 'addressable'
 gem 'bundler'
 gem 'feedlr'
 gem 'httparty'
-gem 'addressable'
