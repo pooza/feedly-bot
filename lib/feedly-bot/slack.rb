@@ -10,7 +10,7 @@ module FeedlyBot
       @url = @config['hook']['url']
     end
 
-    def say (message)
+    def say(message)
       HTTParty.post(@url, {
         body: {text: JSON.pretty_generate(message)}.to_json,
         headers: {'Content-Type' => 'application/json'},

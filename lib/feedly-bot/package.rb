@@ -15,7 +15,7 @@ module FeedlyBot
     end
 
     def self.full_name
-      return "#{self.name} #{self.version}"
+      return "#{name} #{version}"
     end
   end
 end
