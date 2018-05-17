@@ -3,7 +3,7 @@ require 'feedly-bot/config'
 module FeedlyBot
   module Package
     def self.name
-      return File.basename(ROOT_DIR)
+      return 'feedly-bot'
     end
 
     def self.version
