@@ -16,7 +16,9 @@ module FeedlyBot
       end
       @logger.info({message: 'end'})
     rescue => e
-      Slack.all.map{ |h| h.say({class: e.class, message: e.message})}
+      message = {class: e.class, message: e.message, backtrace: e.backtrace[0.5]}
+      Slack.all.map{ |h| h.say(message)}
+      @logger.error(message)
       exit 1
     end
   end
