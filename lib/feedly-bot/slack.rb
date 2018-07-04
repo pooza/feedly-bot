@@ -36,5 +36,11 @@ module FeedlyBot
         end
       end
     end
+
+    def self.broadcast(message)
+      all.each do |slack|
+        slack.say(message)
+      end
+    end
   end
 end

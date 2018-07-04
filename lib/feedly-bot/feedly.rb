@@ -15,7 +15,7 @@ module FeedlyBot
 
     def entries
       return enum_for(__method__) unless block_given?
-      Slack.all.map{ |h| h.say({expires_on: expires_on})} if outdated?
+      Slack.broadcast({expires_on: expires_on}) if outdated?
       @feedlr.user_entries(entry_ids).each do |entry|
         values = {
           origin: entry['origin']['title'],
