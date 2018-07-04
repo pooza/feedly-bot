@@ -12,12 +12,12 @@ module FeedlyBot
     def execute
       @logger.info({message: 'start'})
       @feedly.entries do |entry|
-        Slack.all.map{ |h| h.say(entry)}
+        Slack.broadcast(entry)
       end
       @logger.info({message: 'end'})
     rescue => e
       message = {class: e.class, message: e.message, backtrace: e.backtrace[0.5]}
-      Slack.all.map{ |h| h.say(message)}
+      Slack.broadcast(message)
       @logger.error(message)
       exit 1
     end
