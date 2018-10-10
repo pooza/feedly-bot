@@ -15,7 +15,7 @@ module FeedlyBot
 
     def entries
       return enum_for(__method__) unless block_given?
-      Slack.broadcast({expires_on: expires_on}) if outdated?
+      alert({type: :outdated}) if outdated?
       @feedlr.user_entries(entry_ids).each do |entry|
         values = {
           origin: entry['origin']['title'],
@@ -24,6 +24,16 @@ module FeedlyBot
           url: entry['alternate'].first['href'],
         }
         yield values
+      end
+    end
+
+    def alert(params)
+      case params[:type]
+      when :outdated
+        Slack.broadcast({
+          expires_on: expires_on,
+          auth_url: auth_url,
+        })
       end
     end
 
