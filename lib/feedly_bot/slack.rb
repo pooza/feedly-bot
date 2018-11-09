@@ -1,8 +1,6 @@
 require 'addressable/uri'
 require 'httparty'
 require 'json'
-require 'feedly-bot/config'
-require 'feedly-bot/logger'
 
 module FeedlyBot
   class Slack
