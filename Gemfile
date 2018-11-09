@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
+gem 'activesupport'
 gem 'addressable'
 gem 'bundler'
 gem 'feedlr'
 gem 'httparty'
+gem 'rubocop'

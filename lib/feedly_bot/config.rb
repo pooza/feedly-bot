@@ -1,6 +1,5 @@
 require 'yaml'
 require 'singleton'
-require 'feedly-bot/package'
 
 module FeedlyBot
   class Config < Hash

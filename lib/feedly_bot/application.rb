@@ -1,7 +1,3 @@
-require 'feedly-bot/feedly'
-require 'feedly-bot/slack'
-require 'feedly-bot/logger'
-
 module FeedlyBot
   class Application
     def initialize

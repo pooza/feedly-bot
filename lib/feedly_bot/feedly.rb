@@ -1,5 +1,4 @@
 require 'feedlr'
-require 'feedly-bot/config'
 require 'syslog/logger'
 
 module FeedlyBot
