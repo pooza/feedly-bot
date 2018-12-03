@@ -6,7 +6,7 @@ module FeedlyBot
     def initialize
       @config = Config.instance
       @feedlr = Feedlr::Client.new({
-        oauth_access_token: @config['local']['access_token']['token'],
+        oauth_access_token: @config['/access_token/token'],
         sandbox: false,
         logger: Syslog::Logger.new('feedlr'),
       })
@@ -37,15 +37,15 @@ module FeedlyBot
     end
 
     def outdated?
-      return (expires_on - @config['application']['days']) < Date.today
+      return (expires_on - @config['/days']) < Date.today
     end
 
     def expires_on
-      return @config['local']['access_token']['expires_on']
+      return @config['/access_token/expires_on']
     end
 
     def auth_url
-      return @config['application']['feedly']['auth_url']
+      return @config['/feedly/auth_url']
     end
 
     private
