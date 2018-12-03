@@ -12,9 +12,9 @@ module FeedlyBot
       end
       @logger.info({message: 'end'})
     rescue => e
-      message = {class: e.class, message: e.message, backtrace: e.backtrace[0.5]}
-      Slack.broadcast(message)
-      @logger.error(message)
+      e = Error.create(e)
+      Slack.broadcast(e.to_h)
+      @logger.error(e.to_h)
       exit 1
     end
   end

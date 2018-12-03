@@ -7,8 +7,14 @@ module FeedlyBot
 
   autoload :Application
   autoload :Config
+  autoload :Error
+  autoload :Environment
   autoload :Feedly
   autoload :Logger
   autoload :Package
   autoload :Slack
+
+  autoload_under 'error' do
+    autoload :ConfigError
+  end
 end
