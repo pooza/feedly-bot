@@ -1,5 +1,5 @@
 package:
-  version: 2.1.9
+  version: 2.1.10
   url: https://github.com/pooza/feedly-bot
 days: 7
 feedly:
