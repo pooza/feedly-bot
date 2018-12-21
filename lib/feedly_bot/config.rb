@@ -43,7 +43,7 @@ module FeedlyBot
     def [](key)
       value = super(key)
       return value if value.present?
-      raise ConfigError, "'#{key}' が未設定です。"
+      raise ConfigError, "'#{key}' not found"
     end
 
     private
