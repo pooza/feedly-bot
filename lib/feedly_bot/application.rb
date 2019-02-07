@@ -12,7 +12,7 @@ module FeedlyBot
       end
       @logger.info({message: 'end'})
     rescue => e
-      e = Error.create(e)
+      e = Ginseng::Error.create(e)
       Slack.broadcast(e.to_h)
       @logger.error(e.to_h)
       exit 1
