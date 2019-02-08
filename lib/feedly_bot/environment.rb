@@ -1,5 +1,3 @@
-require 'socket'
-
 module FeedlyBot
   class Environment < Ginseng::Environment
     def self.name
