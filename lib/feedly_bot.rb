@@ -6,8 +6,8 @@ require 'ginseng'
 module FeedlyBot
   extend ActiveSupport::Autoload
 
-  autoload :Application
   autoload :Config
+  autoload :Crawler
   autoload :Environment
   autoload :Feedly
   autoload :Logger

@@ -1,16 +1,16 @@
 module FeedlyBot
-  class Application
+  class Crawler
     def initialize
       @logger = Logger.new
       @feedly = Feedly.new
     end
 
-    def execute
-      @logger.info({message: 'start'})
+    def crawl
       @feedly.entries do |entry|
         Slack.broadcast(entry)
+      rescue => e
+        @logger.error(Ginseng::Error.create(e).to_h)
       end
-      @logger.info({message: 'end'})
     rescue => e
       e = Ginseng::Error.create(e)
       Slack.broadcast(e.to_h)
