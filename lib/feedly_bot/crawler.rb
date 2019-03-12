@@ -1,11 +1,11 @@
 module FeedlyBot
-  class Application
+  class Crawler
     def initialize
       @logger = Logger.new
       @feedly = Feedly.new
     end
 
-    def execute
+    def crawl
       @logger.info({message: 'start'})
       @feedly.entries do |entry|
         Slack.broadcast(entry)
