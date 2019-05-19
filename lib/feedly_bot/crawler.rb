@@ -9,14 +9,9 @@ module FeedlyBot
       @feedly.entries do |entry|
         Slack.broadcast(entry)
       rescue => e
-        @logger.error(Ginseng::Error.create(e).to_h)
+        @logger.error(e)
+        next
       end
-    rescue => e
-      e = Ginseng::Error.create(e)
-      e.package = Package.full_name
-      Slack.broadcast(e.to_h)
-      @logger.error(e.to_h)
-      exit 1
     end
   end
 end
