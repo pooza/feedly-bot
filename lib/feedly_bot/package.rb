@@ -20,6 +20,10 @@ module FeedlyBot
       return "#{module_name}::Logger".constantize
     end
 
+    def http_class
+      return "#{module_name}::HTTP".constantize
+    end
+
     def self.name
       return 'feedly-bot'
     end

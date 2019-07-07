@@ -10,6 +10,7 @@ module FeedlyBot
   autoload :Crawler
   autoload :Environment
   autoload :Feedly
+  autoload :HTTP
   autoload :Logger
   autoload :Package
   autoload :Slack
