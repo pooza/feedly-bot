@@ -1,5 +1,7 @@
+/.bundle/
+/tmp/
 .DS_Store
 Thumbs.db
 ._*
-config/local.yaml
-config/local.yml
+.fuse*
+config/local.*

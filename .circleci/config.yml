@@ -2,22 +2,17 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.2
+      - image: circleci/ruby:2.6.5
     working_directory: ~/repos
     steps:
       - checkout
       - run:
-          name: install bundler
-          command: gem install bundler -v '<2'
+          command: gem install bundler
       - run:
-          name: install dependencies
           command: bundle install
       - run:
-          name: run RuboCop
           command: bundle exec rubocop
       - run:
-          name: update repository
-          command: bundle exec rake repos:update
+          command: bundle exec rake bundle:update
       - run:
-          name: check repository
-          command: bundle exec rake repos:check
+          command: bundle exec rake bundle:check

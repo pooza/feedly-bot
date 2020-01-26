@@ -6,5 +6,3 @@ package:
   email:
     - tkoishi@b-shock.co.jp
 days: 7
-feedly:
-  auth_url: 'https://feedly.com/v3/auth/dev'

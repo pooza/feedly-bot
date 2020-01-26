@@ -1,23 +1,23 @@
 module FeedlyBot
   module Package
-    def module_name
-      return 'FeedlyBot'
-    end
-
     def environment_class
-      return "#{module_name}::Environment".constantize
+      return Environment
     end
 
     def package_class
-      return "#{module_name}::Package".constantize
+      return Package
     end
 
     def config_class
-      return "#{module_name}::Config".constantize
+      return Config
     end
 
     def logger_class
-      return "#{module_name}::Logger".constantize
+      return Logger
+    end
+
+    def http_class
+      return HTTP
     end
 
     def self.name

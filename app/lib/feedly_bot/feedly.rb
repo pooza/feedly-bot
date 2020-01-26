@@ -5,16 +5,15 @@ module FeedlyBot
   class Feedly
     def initialize
       @config = Config.instance
-      @feedlr = Feedlr::Client.new({
+      @feedlr = Feedlr::Client.new(
         oauth_access_token: @config['/access_token/token'],
         sandbox: false,
         logger: Syslog::Logger.new('feedlr'),
-      })
+      )
     end
 
     def entries
       return enum_for(__method__) unless block_given?
-      alert({type: :outdated}) if outdated?
       @feedlr.user_entries(entry_ids).each do |entry|
         values = {
           origin: entry['origin']['title'],
@@ -24,20 +23,6 @@ module FeedlyBot
         }
         yield values
       end
-    end
-
-    def alert(params)
-      case params[:type]
-      when :outdated
-        Slack.broadcast({
-          expires_on: expires_on,
-          auth_url: auth_url,
-        })
-      end
-    end
-
-    def outdated?
-      return (expires_on - @config['/days']) < Date.today
     end
 
     def expires_on
