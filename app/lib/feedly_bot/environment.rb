@@ -5,7 +5,7 @@ module FeedlyBot
     end
 
     def self.dir
-      return File.expand_path('../..', __dir__)
+      return FeedlyBot.dir
     end
   end
 end

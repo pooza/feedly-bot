@@ -1,10 +1,8 @@
 package:
-  version: 2.2.6
+  version: 2.2.7
   url: https://github.com/pooza/feedly-bot
   authors:
     - Tatsuya Koishi
   email:
     - tkoishi@b-shock.co.jp
 days: 7
-feedly:
-  auth_url: 'https://feedly.com/v3/auth/dev'
